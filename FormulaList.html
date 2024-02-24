@@ -1,0 +1,77 @@
+<html lang = "en">
+
+<!-- Styling-->
+<style type="text/css" media="all">
+   @import "practice.css";
+   body {
+	background-color: lightblue;
+}
+</style>
+
+<!-- The Body-->
+<body>
+	<title> Welcome to the Spongebob Fandom </title>
+	<h1>Krabby Patty Secret Forumla</h1>
+	 
+	<p>Get ready to compile the Krabby Patty Secret Formuler made by Eugene H. Krabs!</p>
+	
+	<!-- Input and Buttons-->
+	<center>
+	<input type = "text" id = "inp"> <br> <br>
+	<button id = "add" onclick = "addShopping(inp.value)"> Add</button>
+	<button id = "del" onclick = "removeShopping()"> Delete</button>
+	<button id = "clr" onclick = "clearing()"> Clear</button>
+	<br><br><img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Krabby_Patty.png">
+	<!-- Output -->
+	<br><br><br><br><h2> Formula List: </h2>
+	<textarea id="out" rows="10" cols="50"></textarea>
+	<br><br><button id = "checkF" onclick = "checkFormula()"> Check Your Formula! </button>
+	
+</center>
+</body>	
+
+<!-- JavaSCRIPT -->
+	<script>
+	<!-- The Array -->
+	var list = ["Buns"];
+	var reallist = ["Buns", "Cheese", "Lettuce", "Tomatoes", "Pickles", "Ketchup", "Mustard", "Mayo", "Onion"];
+	var counter = 0, itemsL = reallist.length;
+	
+	document.getElementById("out").innerHTML = list;
+	
+	<!-- Add, Remove, Clear, and Check Functions-->
+	function addShopping(item){
+		list.push(item);
+		document.getElementById("out").innerHTML = list;
+	}
+	function removeShopping(){
+		list.pop();
+		document.getElementById("out").innerHTML = list;
+	}
+	function checkFormula(){
+		for(let i = 0; i<reallist.length; i++){
+		for(let z = 0; z<reallist.length; z++){
+			if(list[counter] == reallist[z]){
+			counter++;
+		}
+	 }
+	 }
+	itemsL = itemsL - counter;
+	if((counter == 8) && (list.length == reallist.length) ){
+	document.getElementById("out").innerHTML = "Good Job, you figured out the formula!";
+	}
+	else{	
+	document.getElementById("out").innerHTML = "You have " + counter + " correct item(s) in your list. You have " + itemsL + " items left to find." + " Make sure your list is not longer than intended!";
+	}
+}
+	function clearing(){
+	let i = list.length;
+	while (i > 0) {
+			list.pop();
+			i--;
+	}
+		document.getElementById("out").innerHTML = list;
+		document.getElementById("inp").value = '';
+	}
+	</script>
+</html>
