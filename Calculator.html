@@ -37,7 +37,8 @@
     <p id="mess1"></p>
     <p id="mess2"></p>
     <p id="mess3"></p>
-    <p id="mess4"></p>
+    <img src="https://static.wikia.nocookie.net/fictionalcompanies/images/e/e9/Krusty_Krab_logo.png/revision/latest?cb=20230923081253">
+
 
 </body>	
 
@@ -50,29 +51,29 @@ function paycalc(){
 
     if(document.getElementById("paytime").value == "Hourly"){
         var pay1 = document.getElementById("payinp").value;
-        var pay1tax = pay1 * 80 * 0.96
-        var pay1ktax = (pay1tax * 0.5)
-        messageEmp(pay1, pay1tax, pay1ktax, intro);
+        var pay1tax = (pay1 * 80 * 0.96).toFixed(2);
+        var pay1ktax = (pay1tax * 0.5).toFixed(2);
+        messageEmp(intro, pay1, pay1tax, pay1ktax);
 
     }
     else if(document.getElementById("paytime").value == "Salary"){
         var pay2 = document.getElementById("payinp").value;
-        var pay2tax = ((pay2 * 0.96)/(26));
-        var pay2ktax = (pay2tax.toFixed(2) * 0.5);
-        messageEmp(pay2, pay2tax, pay2ktax, intro);
+        var pay2tax = ((pay2 * 0.96)/(26)).toFixed(2);
+        var pay2ktax = (pay2tax * 0.5).toFixed(2);
+        messageEmp(intro, pay2, pay2tax, pay2ktax);
 
     }
 
 }
 
 //Krusty Krab Message for employees
-function messageEmp(p, p2, p3, namee){
+function messageEmp(namee, p, p2, p3){
     var intro = document.getElementById("firstname").value;  
-    document.getElementById("mess1").innerHTML = "Dear Krusty Krab Employee, ";
-    document.getElementById("mess2").innerHTML = "Based on the information given, it looks like you're making  $" + p + "(per year/hour). Based on this, after taxes you should be taking home " + p2 + " every week.";
-    document.getElementById("mess3").innerHTML = "Now that may not seem like a lot, but it gets better! There's a Mr. Krab tax as well which is roughly 50% of your paycheck after taxes. That should be " +p3 + " for you.";
-    document.getElementById("mess4").innerHTML = "Honestly, I would be grateful as the Krusty Krab is a wonderful job. I want to thank you, " + namee + ", for your services! :)" ;
+    document.getElementById("mess1").innerHTML = "Dear " + namee +",";
+    document.getElementById("mess2").innerHTML = "As a valued worker of the Krusty Krab, we want to help you calculate your pay since we don't give you pay subs. Based on the information given, it looks like you're making  $" + p + " (per year/hour). This means after Bikin Bottom taxes, you should be taking home $" + p2 + " bi-weeekly";
+    document.getElementById("mess3").innerHTML = "Now, that may seem like a lot, but it gets better! There's a Eugene Krab tax as well which is roughly 50% of your paycheck after taxes. This goes towards fixing any damages to the Krusty Krab and helps my pockets! Therefore, you actually take  home $" +p3 + ". Thank you for joining the Krusty Krew. I hope you have a wonderful day!";
 }
+
 //Main Idea: if pay frequency = hourly; 20*80*.96. If pay freq = Salary. Salary * 0.96/26
 //Maybe Mr. Krab Tax
 </script>

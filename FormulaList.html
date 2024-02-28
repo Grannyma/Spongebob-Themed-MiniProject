@@ -27,19 +27,20 @@
 	<textarea id="out" rows="10" cols="50"></textarea>
 	<br><br><button id = "checkF" onclick = "checkFormula()"> Check Your Formula! </button>
 	
-</center>
+	</center>
 </body>	
 
 <!-- JavaSCRIPT -->
 	<script>
-	<!-- The Array -->
+	
+	//The Array 
 	var list = ["Buns"];
 	var reallist = ["Buns", "Cheese", "Lettuce", "Tomatoes", "Pickles", "Ketchup", "Mustard", "Mayo", "Onion"];
 	var counter = 0, itemsL = reallist.length;
 	
 	document.getElementById("out").innerHTML = list;
 	
-	<!-- Add, Remove, Clear, and Check Functions-->
+	//Add, Remove, Clear, and Check Functions-
 	function addShopping(item){
 		list.push(item);
 		document.getElementById("out").innerHTML = list;
@@ -53,9 +54,12 @@
 		for(let z = 0; z<reallist.length; z++){
 			if(list[counter] == reallist[z]){
 			counter++;
+			//Side Note: ake sure to ignore casing
 		}
 	 }
 	 }
+
+	 //Verification Text aka Check Formula
 	itemsL = itemsL - counter;
 	if((counter == 8) && (list.length == reallist.length) ){
 	document.getElementById("out").innerHTML = "Good Job, you figured out the formula!";
@@ -64,8 +68,11 @@
 	document.getElementById("out").innerHTML = "You have " + counter + " correct item(s) in your list. You have " + itemsL + " items left to find." + " Make sure your list is not longer than intended!";
 	}
 }
+
+	//Clear Button Function
 	function clearing(){
 	let i = list.length;
+	counter = 0;;
 	while (i > 0) {
 			list.pop();
 			i--;
