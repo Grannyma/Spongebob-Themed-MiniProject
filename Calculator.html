@@ -15,41 +15,29 @@
 	 
 	<p>All employees of the Krusty Krab can use the calculator to dictate their pay(after taxes) this month!</p>
 	
-	<!-- Input and Buttons-->
-	<div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      
-	<br><br><img src="https://upload.wikimedia.org/wikipedia/en/4/4c/Krabby_Patty.png">
-	
+	<!-- Salary DropDown-->
+    Employee First Name: <input type = "text" id = "firstname"> <br> <br>
+    Employee Last Name: <input type = "text" id = "lastname"> <br> <br>
+	<label for="paytime">Pay Frequency: </label>
+    <select name="paytime" id="paytime">
+        <option value="Hourly">Hourly</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Bi-Weekly">Bi-Weekly</option>
+        <option value="Monthly">Monthly</option>
+    </select>
+    <br><br>
+    Salary/Pay: <input type = "text" id = "payinp"> <br> <br>
+    <button id = "calc" onclick = "paycalc()"> Calculate Pay </button>
+
 </body>	
 
 <!-- JavaSCRIPT -->
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}    
+paycalc(){
+    var fname = document.getElementById('firstname').value; 
+    document.getElementById("out").innerHTML = "Dear " + fname;.
+    
+}  
 </script>
 
 </html>
