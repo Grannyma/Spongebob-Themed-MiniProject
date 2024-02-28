@@ -11,10 +11,11 @@
 <!-- The Body-->
 <body>
 	<title> Welcome to the Spongebob Fandom </title>
-	<h1>Calculate Your Krusty Krab Pay</h1>
+	<h1>The Official Krusty Krabulator!</h1>
 	 
-	<p>All employees of the Krusty Krab can use the calculator to dictate their pay(after taxes) this month!</p>
+	<p>All Krusty Krab employees can now calculate how much they'll bring home after taxes (including the Eugene H. Krabs tax)!</p>
 	
+    <center>
 	<!--First + Last Name-->
     Employee First Name: <input type = "text" id = "firstname"> <br> <br>
     Employee Last Name: <input type = "text" id = "lastname"> <br> <br>
@@ -37,8 +38,11 @@
     <p id="mess1"></p>
     <p id="mess2"></p>
     <p id="mess3"></p>
+    </center>
+    
     <img src="https://static.wikia.nocookie.net/fictionalcompanies/images/e/e9/Krusty_Krab_logo.png/revision/latest?cb=20230923081253">
 
+    <p><a href="https://www.linkedin.com/in/tiffanyapeck/">My LinkedIn |</a><a href="FormulaList.html"> Krabby Patty Formula</a></p>
 
 </body>	
 
@@ -47,9 +51,11 @@
 
 //Pay Calculation
 function paycalc(){
-    var intro = document.getElementById("firstname").value;  
-
-    if(document.getElementById("paytime").value == "Hourly"){
+    var intro = document.getElementById("firstname").value; 
+    var checkint = document.getElementById("payinp").value;
+   
+    if(Number.isInteger(+checkint) == true){
+        if(document.getElementById("paytime").value == "Hourly"){
         var pay1 = document.getElementById("payinp").value;
         var pay1tax = (pay1 * 80 * 0.96).toFixed(2);
         var pay1ktax = (pay1tax * 0.5).toFixed(2);
@@ -63,7 +69,10 @@ function paycalc(){
         messageEmp(intro, pay2, pay2tax, pay2ktax);
 
     }
-
+   }
+   else{
+    document.getElementById("mess1").innerHTML = "Your Salary is Invalid. Please ensure you have a number value.";
+   }
 }
 
 //Krusty Krab Message for employees
