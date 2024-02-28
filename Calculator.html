@@ -18,15 +18,15 @@
 	<!-- Salary DropDown-->
     Employee First Name: <input type = "text" id = "firstname"> <br> <br>
     Employee Last Name: <input type = "text" id = "lastname"> <br> <br>
-	<label for="paytime">Pay Frequency: </label>
+	<label for="paytime">Pay Type: </label>
     <select name="paytime" id="paytime">
         <option value="Hourly">Hourly</option>
-        <option value="Weekly">Weekly</option>
-        <option value="Bi-Weekly">Bi-Weekly</option>
-        <option value="Monthly">Monthly</option>
+        <option value="Salary">Salary</option>
     </select>
     <br><br>
     Salary/Pay: <input type = "text" id = "payinp"> <br> <br>
+    
+    <!--Calculating Pay Button-->
     <button id = "calc" onclick = "paycalc()"> Calculate Pay </button>
 
 </body>	
@@ -34,10 +34,10 @@
 <!-- JavaSCRIPT -->
 <script>
 paycalc(){
-    var fname = document.getElementById('firstname').value; 
-    document.getElementById("out").innerHTML = "Dear " + fname;.
-    
+    console.log("test 123");
 }  
+//Main Idea: if pay frequency = hourly; 20*80*.96. If pay freq = Salary. Salary * 0.96/26
+//Maybe Mr. Krab Tax
 </script>
 
 </html>
