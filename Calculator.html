@@ -15,28 +15,64 @@
 	 
 	<p>All employees of the Krusty Krab can use the calculator to dictate their pay(after taxes) this month!</p>
 	
-	<!-- Salary DropDown-->
+	<!--First + Last Name-->
     Employee First Name: <input type = "text" id = "firstname"> <br> <br>
     Employee Last Name: <input type = "text" id = "lastname"> <br> <br>
-	<label for="paytime">Pay Type: </label>
+	
+    <!-- Salary DropDown-->
+    <label for="paytime">Pay Type: </label>
     <select name="paytime" id="paytime">
         <option value="Hourly">Hourly</option>
         <option value="Salary">Salary</option>
     </select>
     <br><br>
+
+    <!--Salary/Pay Input-->
     Salary/Pay: <input type = "text" id = "payinp"> <br> <br>
     
     <!--Calculating Pay Button-->
     <button id = "calc" onclick = "paycalc()"> Calculate Pay </button><br><br>
-    <p id="demo"></p>
+    
+    <!--Employer Message-->
+    <p id="mess1"></p>
+    <p id="mess2"></p>
+    <p id="mess3"></p>
+    <p id="mess4"></p>
 
 </body>	
 
 <!-- JavaSCRIPT -->
 <script>
-paycalc(){
-    document.getElementById("demo").innerHTML = 5 + 6;
-}  
+
+//Pay Calculation
+function paycalc(){
+    var intro = document.getElementById("firstname").value;  
+
+    if(document.getElementById("paytime").value == "Hourly"){
+        var pay1 = document.getElementById("payinp").value;
+        var pay1tax = pay1 * 80 * 0.96
+        var pay1ktax = (pay1tax * 0.5)
+        messageEmp(pay1, pay1tax, pay1ktax, intro);
+
+    }
+    else if(document.getElementById("paytime").value == "Salary"){
+        var pay2 = document.getElementById("payinp").value;
+        var pay2tax = ((pay2 * 0.96)/(26));
+        var pay2ktax = (pay2tax.toFixed(2) * 0.5);
+        messageEmp(pay2, pay2tax, pay2ktax, intro);
+
+    }
+
+}
+
+//Krusty Krab Message for employees
+function messageEmp(p, p2, p3, namee){
+    var intro = document.getElementById("firstname").value;  
+    document.getElementById("mess1").innerHTML = "Dear Krusty Krab Employee, ";
+    document.getElementById("mess2").innerHTML = "Based on the information given, it looks like you're making  $" + p + "(per year/hour). Based on this, after taxes you should be taking home " + p2 + " every week.";
+    document.getElementById("mess3").innerHTML = "Now that may not seem like a lot, but it gets better! There's a Mr. Krab tax as well which is roughly 50% of your paycheck after taxes. That should be " +p3 + " for you.";
+    document.getElementById("mess4").innerHTML = "Honestly, I would be grateful as the Krusty Krab is a wonderful job. I want to thank you, " + namee + ", for your services! :)" ;
+}
 //Main Idea: if pay frequency = hourly; 20*80*.96. If pay freq = Salary. Salary * 0.96/26
 //Maybe Mr. Krab Tax
 </script>
