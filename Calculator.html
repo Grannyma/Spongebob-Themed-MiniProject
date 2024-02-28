@@ -27,17 +27,17 @@
     Salary/Pay: <input type = "text" id = "payinp"> <br> <br>
     
     <!--Calculating Pay Button-->
-    <button id = "calc" onclick = "paycalc()"> Calculate Pay </button>
+    <button id = "calc" onclick = "paycalc()"> Calculate Pay </button><br><br>
+    <p id="demo"></p>
 
 </body>	
 
 <!-- JavaSCRIPT -->
 <script>
 paycalc(){
-    console.log("test 123");
+    document.getElementById("demo").innerHTML = 5 + 6;
 }  
 //Main Idea: if pay frequency = hourly; 20*80*.96. If pay freq = Salary. Salary * 0.96/26
 //Maybe Mr. Krab Tax
 </script>
-
 </html>
