@@ -1,0 +1,54 @@
+<html lang = "en">
+
+<!-- Styling-->
+<style type="text/css" media="all">
+   @import "practice.css";
+   body {
+	background-color: lightblue;
+}
+</style>
+
+<!-- The Body-->
+<body>
+	<title> Login </title>
+	<h1>Krusty Krab Login</h1>
+	 
+    <center>
+	<!--User + Password-->
+    Username: <input type = "text" id = "USname"> <br> <br>
+    Password: <input type = "text" id = "PASSname"> <br> <br>
+
+    <!--Login-->
+    <button id = "LOGG" onclick = "userCheck()"> Login</button><br><br>
+    
+
+    <p id="mess1"></p>
+    <img src="https://static.wikia.nocookie.net/fictionalcompanies/images/e/e9/Krusty_Krab_logo.png/revision/latest?cb=20230923081253">
+    </center>
+    <p><a href="https://www.linkedin.com/in/tiffanyapeck/">My LinkedIn |</a><a href="FormulaList.html"> Krabby Patty Formula</a></p>
+
+</body>	
+
+<!-- JavaSCRIPT -->
+<script>
+const person = {
+    inp1: "Input",
+    age: 0,
+    inp2: "Input2"
+};
+
+function userCheck(){   
+    var userN = document.getElementById("USname").value; 
+    var PassN = document.getElementById("PASSname").value; 
+    
+    //Setting User + P to object attributes
+    let checkname = person;
+    checkname.inp1 = userN; checkname.inp2 = PassN;
+    document.getElementById("mess1").innerHTML = checkname.inp1 + " Hi" + checkname.inp2;
+
+}
+
+//Main Idea: if pay frequency = hourly; 20*80*.96. If pay freq = Salary. Salary * 0.96/26
+//Maybe Mr. Krab Tax
+</script>
+</html>
